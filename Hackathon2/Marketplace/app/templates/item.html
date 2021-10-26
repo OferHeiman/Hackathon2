@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='item.css') }}">
+
+<table class="table table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Photo</th>
+      <th scope="col">Price</th>
+      <th scope="col">Condition</th>
+      <th scope="col">Phone</th>
+      <th scope="col">email</th>
+      <th scope="col">description</th>
+      <th scope="col">location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{ad.name}}</th>
+      <td><img src="{{ad.photo}}" class="img-fluid"></td>
+      <td>{{ad.price}}</td>
+      <td>{{ad.condition}}</td>
+      <td>{{ad.phonenumber}}</td>
+      <td>{{ad.email}}</td>
+      <td>{{ad.description}}</td>
+      <td><img src="https://maps.googleapis.com/maps/api/staticmap?center={{ad.location}}&zoom=15&size=300x150&maptype=roadmap
+&key=AIzaSyCjyVAlpIjQhJiCLfNf1qhdr3KQ6moVqts"></td> <!--Google Cloud Platform, Static Maps API , need API KEY-->
+    </tr>
+    <tr>
+  </tbody>
+</table>
+
+{% endblock %}

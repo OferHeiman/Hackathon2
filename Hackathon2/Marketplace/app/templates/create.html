@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for message in get_flashed_messages() %}
+<div class="alert alert-dark" role="alert">
+{{ message }}
+</div>
+{% endfor %}
+
+<br>
+<h1>New Listing:</h1>
+<div class="shadow p-3 mb-5 bg-body rounded">
+<form method="POST">
+{{ form.hidden_tag() }}
+
+{{ form.name.label(class="col-sm-2 col-form-label") }}
+{{ form.name(class="form-control") }}
+
+{{ form.photo.label(class="col-sm-2 col-form-label") }}
+{{ form.photo(class="form-control") }}
+
+{{ form.price.label(class="col-sm-2 col-form-label") }}
+{{ form.price(class="form-control") }}
+
+{{ form.condition.label(class="col-sm-2 col-form-label") }}
+{{ form.condition(class="form-control") }}
+
+{{ form.phonenumber.label(class="col-sm-2 col-form-label") }}
+{{ form.phonenumber(class="form-control") }}
+
+{{ form.email.label(class="col-sm-2 col-form-label") }}
+{{ form.email(class="form-control") }}
+
+{{ form.description.label(class="col-sm-2 col-form-label") }}
+{{ form.description(class="form-control") }}
+
+{{ form.location.label(class="col-sm-2 col-form-label") }}
+{{ form.location(class="form-control") }}<br>
+{{ form.submit(class="btn btn-dark") }}
+</form>
+    </div>
+<!--{% if our_users %}-->
+<!--    {% for user in our_users %}-->
+<!--        {{user.id}} {{user.name}} {{user.street}} {{user.city}} {{user.zipcode}} <a href="{{url_for('delete',id=user.id)}}">Delete</a>-->
+<!--<br>-->
+<!--    {% endfor %}-->
+<!--{% endif %}-->
+
+
+<!--{% endblock %}-->
