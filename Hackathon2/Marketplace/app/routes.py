@@ -58,6 +58,3 @@ def page_not_found(e):
 @app.errorhandler(500)
 def page_not_found(e):
     return render_template('500.html'), 500
-
-# to get the values of a relationship attribute you can run the following:
-#  person_info.phonenumbers.all()[1].number
