@@ -50,14 +50,6 @@ def create():
     return render_template("create.html", form=form, name=name)
 
 
-# @app.route('/person/<phonenumber>')
-# def display_info_according_to_phonenumber(phonenumber):
-# 	phonenumber_info = Phonenumber.query.filter_by(number=phonenumber).first()
-# 	person_id = phonenumber_info.person_id
-# 	person_info = Person.query.filter_by(id=person_id).first()
-# 	return f'Name:{person_info.name}<br>Email: {person_info.email}<br>Phone number: {phonenumber}'
-
-
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
