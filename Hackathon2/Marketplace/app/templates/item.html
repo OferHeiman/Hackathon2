@@ -4,7 +4,9 @@
 
 <link rel="stylesheet" href="{{ url_for('static', filename='item.css') }}">
 
-<table class="table table-bordered table-hover">
+
+
+<table class="table table-bordered">
   <thead class="thead-dark">
     <tr>
       <th scope="col">Name</th>
@@ -14,7 +16,10 @@
       <th scope="col">Phone</th>
       <th scope="col">email</th>
       <th scope="col">description</th>
+      <th scope="col">category</th>
+      <th scope="col">date added</th>
       <th scope="col">location</th>
+      <th scope="col">delete listing</th>
     </tr>
   </thead>
   <tbody>
@@ -26,8 +31,38 @@
       <td>{{ad.phonenumber}}</td>
       <td>{{ad.email}}</td>
       <td>{{ad.description}}</td>
+      <td>{{ad.category}}</td>
+      <td>{{ad.date_added.day}}
+                {% if ad.date_added.month == 1 %}
+                    Jan
+                    {% elif ad.date_added.month == 2 %}
+                        Feb {{ad.date_added.year}}
+                    {% elif ad.date_added.month == 3%}
+                        March {{ad.date_added.year}}
+                    {% elif ad.date_added.month == 4%}
+                        April {{ad.date_added.year}}
+                    {% elif ad.date_added.month == 5%}
+                        May {{ad.date_added.year}}
+                    {% elif ad.date_added.month == 6%}
+                        June {{ad.date_added.year}}
+                    {% elif ad.date_added.month == 7%}
+                        July {{ad.date_added.year}}
+                    {% elif ad.date_added.month == 8%}
+                        Aug {{ad.date_added.year}}
+                    {% elif ad.date_added.month == 9%}
+                        Sep {{ad.date_added.year}}
+                    {% elif ad.date_added.month == 10%}
+                        Oct {{ad.date_added.year}}
+                    {% elif ad.date_added.month == 11%}
+                        Nov {{ad.date_added.year}}
+                    {% elif ad.date_added.month == 12%}
+                        Dec {{ad.date_added.year}}
+                {% endif %}</td>
       <td><img src="https://maps.googleapis.com/maps/api/staticmap?center={{ad.location}}&zoom=15&size=300x150&maptype=roadmap
-&key=AIzaSyCjyVAlpIjQhJiCLfNf1qhdr3KQ6moVqts"></td> <!--Google Cloud Platform, Static Maps API , need API KEY-->
+&key=AIzaSyCjyVAlpIjQhJiCLfNf1qhdr3KQ6moVqts"><br>{{ad.location}}</td> <!--Google Cloud Platform, Static Maps API , need API KEY-->
+      <td>
+<a href="/delete/{{ad.id}}" class="btn btn-primary">Delete Listing</a>
+      </td>
     </tr>
     <tr>
   </tbody>

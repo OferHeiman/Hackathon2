@@ -1,34 +1,79 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark shadow-lg">
+<link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark shadow-lg" style="background: #1a1a1a">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{{url_for('index')}}">Marketplace</a>
+    <a class="navbar-brand" style="margin-left:40px;margin-right: 1350px" href="{{url_for('index')}}">Marketplace</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('create')}}">Create new listing</a>
+          <li class="nav-item">
+          <a class="nav-link" href="{{url_for('deleteads')}}" >Delete All Ads</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="{{url_for('fakeads')}}" >Add Fake Ads</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" >Listings count: {{ads_count}}</a>
+          <a class="nav-link" >Ad Count: {{ads_count}}</a>
         </li>
-<!--        <li class="nav-item dropdown">-->
-<!--          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
-<!--            Dropdown-->
-<!--          </a>-->
-<!--          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-<!--            <li><a class="dropdown-item" href="#">Action</a></li>-->
-<!--            <li><a class="dropdown-item" href="#">Another action</a></li>-->
-<!--            <li><hr class="dropdown-divider"></li>-->
-<!--            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
-<!--          </ul>-->
-<!--        </li>-->
       </ul>
-      <form action='/search/' class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search Marketplace" aria-label="Search">
-        <button class="btn btn-outline-secondary" type="submit">Search</button>
-      </form>
+
     </div>
   </div>
+</div>
 </nav>
 
+<div class="sidebar-container">
+  <div class="search-container" >
+    <form action="{{ url_for('search') }}" >
+      <input class="search-query" data-provide="typeahead" data-items="4" type="text" placeholder="  Search Marketplace" name="search" style="background-color: white; border-radius: 10px; margin-top:10px; margin-left:13px">
+      <button style="margin-top:15px;margin-bottom:10px; margin-left:65px"type="submit" class="btn btn-dark border">Search</button>
+    </form>
+  </div>
+    </li>
+  <ul class="sidebar-navigation">
+    <li>
+<a style="font-weight: bold" class="nav-link" href="{{url_for('create')}}">Create New Ad</a>
+    </li>
+        <li class="header" style="font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Categories</li>
+        <li>
+<a style="font-weight: bold" class="nav-link" href="/category/Vehicles">>Vehicles</a>
+    </li>
+            <li>
+<a style="font-weight: bold" class="nav-link" href="/category/Real Estate">>Real Estate</a>
+    </li>
+    <li>
+<a style="font-weight: bold" class="nav-link" href="/category/Apparel">>Apparel</a>
+    </li>
+            <li>
+<a style="font-weight: bold" class="nav-link" href="/category/Electronics">>Electronics</a>
+    </li>
+            <li>
+<a style="font-weight: bold" class="nav-link" href="/category/Home Goods">>Home Goods</a>
+    </li>
+            <li>
+<a style="font-weight: bold" class="nav-link" href="/category/Musical Instruments">>Musical Instruments</a>
+    </li>
+            <li>
+<a style="font-weight: bold" class="nav-link" href="/category/Office Supplies">>Office Supplies</a>
+    </li>
+            <li>
+<a style="font-weight: bold" class="nav-link" href="/category/Sporting Goods">>Sporting Goods</a>
+    </li>
+            <li>
+<a style="font-weight: bold" class="nav-link" href="/category/Toys & Games">>Toys & Games</a>
+    </li>
+            <li>
+<a style="font-weight: bold" class="nav-link" href="/category/Hobbies">>Hobbies</a>
+    </li>
+            <li>
+<a style="font-weight: bold" class="nav-link" href="/category/Family">>Family</a>
+    </li>
+            <li>
+<a style="font-weight: bold" class="nav-link" href="/category/Entertainment">>Entertainment</a>
+    </li>
+                  <li>
+<a style="font-weight: bold" class="nav-link" href="/category/Other">>Other</a>
+    </li>
+  </ul>
+</div>

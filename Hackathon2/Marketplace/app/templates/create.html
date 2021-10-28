@@ -9,7 +9,7 @@
 {% endfor %}
 
 <br>
-<h1>New Listing:</h1>
+<h1>New Ad:</h1>
 <div class="shadow p-3 mb-5 bg-body rounded">
 <form method="POST">
 {{ form.hidden_tag() }}
@@ -30,22 +30,25 @@
 {{ form.phonenumber(class="form-control") }}
 
 {{ form.email.label(class="col-sm-2 col-form-label") }}
-{{ form.email(class="form-control") }}
+    {% if form.email.errors %}
+        {{ form.email(class="form-control is-invalid") }}
+    <div class="invalid-feedback">
+        {% for error in form.email.errors %}
+            <span>{{ error }}</span>
+        {% endfor %}
+    </div>
+    {% else %}
+        {{ form.email(class="form-control") }}
+    {% endif %}
 
 {{ form.description.label(class="col-sm-2 col-form-label") }}
 {{ form.description(class="form-control") }}
+
+{{ form.category.label(class="col-sm-2 col-form-label") }}
+{{ form.category(class="form-control") }}
 
 {{ form.location.label(class="col-sm-2 col-form-label") }}
 {{ form.location(class="form-control") }}<br>
 {{ form.submit(class="btn btn-dark") }}
 </form>
     </div>
-<!--{% if our_users %}-->
-<!--    {% for user in our_users %}-->
-<!--        {{user.id}} {{user.name}} {{user.street}} {{user.city}} {{user.zipcode}} <a href="{{url_for('delete',id=user.id)}}">Delete</a>-->
-<!--<br>-->
-<!--    {% endfor %}-->
-<!--{% endif %}-->
-
-
-<!--{% endblock %}-->

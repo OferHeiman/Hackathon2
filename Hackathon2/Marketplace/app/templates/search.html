@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+<div class="parent">
+    {% for ad in nameresults %}
+    <a href="/item/{{ad.id}}" class="child shadow border rounded">
+        <figure class="figure">
+            <img src="{{ad.photo}}" class="figure-img img-fluid" alt="..." style="height: 200px; object-fit: fit; border-radius: 8px; padding: 2px">
+            <figcaption class="figure-caption text-center" style="color:black">
+                <b> {{ad.name}}</b><br>
+                <b>{{ad.price}}</b><br>
+                <br>
+                <div class="textdesc">
+                    {{ad.description}}
+                </div>
+                <br>
+                {{ad.location}}
+                <br>
+            </figcaption>
+        </figure>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

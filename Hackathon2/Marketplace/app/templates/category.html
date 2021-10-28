@@ -11,7 +11,7 @@
 {% endfor %}
 
 <div class="parent" >
-    {% for ad in our_ads %}
+    {% for ad in category_ads %}
     <a href="/item/{{ad.id}}"class="child shadow-sm border rounded">
         <figure class="figure">
             <img src="{{ad.photo}}" class="figure-img img-fluid" alt="..." style="height: 200px; object-fit: fit; border-radius: 8px; padding: 2px">
